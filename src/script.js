@@ -1,29 +1,51 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  if (hours < 10) {
+    minutes = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
 function showWeather(response) {
-  console.log(response);
   let changeType = document.querySelector("#typeWeather");
   let changeTemp = document.querySelector("#currentTemp");
   let changeHumidity = document.querySelector("#precipitation");
   let changeWind = document.querySelector("#speedWind");
 
   let temp = Math.round(response.data.main.temp);
-  console.log(temp);
   let weather = response.data.weather[0].main;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
 
   changeType.innerHTML = weather;
   changeTemp.innerHTML = temp;
-  changeHumidity.innerHTML = `Precipitation: ${humidity}`;
+  changeHumidity.innerHTML = `Humidity: ${humidity}`;
   changeWind.innerHTML = `Wind: ${wind}`;
 }
 
 function showWeatherCurrent(response) {
-  console.log(response);
   let nameCity = document.querySelector("#nameCity");
   let changeType = document.querySelector("#typeWeather");
   let changeTemp = document.querySelector("#currentTemp");
   let changeHumidity = document.querySelector("#precipitation");
   let changeWind = document.querySelector("#speedWind");
+  let time = document.querySelector("#time");
 
   let temp = Math.round(response.data.main.temp);
   let place = response.data.name;
@@ -31,12 +53,12 @@ function showWeatherCurrent(response) {
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
 
-  console.log(temp);
   nameCity.innerHTML = place;
   changeTemp.innerHTML = temp;
   changeType.innerHTML = weather;
-  changeHumidity.innerHTML = `Precipitation: ${humidity}`;
+  changeHumidity.innerHTML = `Humidity: ${humidity}`;
   changeWind.innerHTML = `Wind: ${wind}`;
+  time.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function showCity() {
@@ -46,7 +68,6 @@ function showCity() {
   changeCity.innerHTML = city;
   let apiKey = "8ae83c6977d5f0288147cd2a07fecdae";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  console.log(city);
   axios.get(apiUrl).then(showWeather);
 }
 
