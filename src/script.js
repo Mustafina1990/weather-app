@@ -40,25 +40,32 @@ function showWeather(response) {
 }
 
 function showWeatherCurrent(response) {
+  console.log(response);
   let nameCity = document.querySelector("#nameCity");
   let changeType = document.querySelector("#typeWeather");
   let changeTemp = document.querySelector("#currentTemp");
   let changeHumidity = document.querySelector("#precipitation");
   let changeWind = document.querySelector("#speedWind");
   let time = document.querySelector("#time");
+  let iconElement = document.querySelector("#icon");
 
   let temp = Math.round(response.data.main.temp);
   let place = response.data.name;
-  let weather = response.data.weather[0].main;
+  let weather = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
 
   nameCity.innerHTML = place;
-  changeTemp.innerHTML = temp;
+  changeTemp.innerHTML = `${temp}°C`;
   changeType.innerHTML = weather;
   changeHumidity.innerHTML = `Humidity: ${humidity}`;
   changeWind.innerHTML = `Wind: ${wind}`;
   time.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", `${weather}`);
 }
 
 function showCity() {
