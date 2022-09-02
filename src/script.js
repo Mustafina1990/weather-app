@@ -37,6 +37,7 @@ function showWeather(response) {
   changeTemp.innerHTML = temp;
   changeHumidity.innerHTML = `Humidity: ${humidity}`;
   changeWind.innerHTML = `Wind: ${wind}`;
+  changeIcon(response);
 }
 
 function showWeatherCurrent(response) {
@@ -46,7 +47,6 @@ function showWeatherCurrent(response) {
   let changeHumidity = document.querySelector("#precipitation");
   let changeWind = document.querySelector("#speedWind");
   let time = document.querySelector("#time");
-  let iconElement = document.querySelector("#icon");
 
   celsiusTemp = response.data.main.temp;
 
@@ -62,6 +62,13 @@ function showWeatherCurrent(response) {
   changeHumidity.innerHTML = `Humidity: ${humidity}`;
   changeWind.innerHTML = `Wind: ${wind}`;
   time.innerHTML = formatDate(response.data.dt * 1000);
+  changeIcon(response);
+}
+
+function changeIcon(response) {
+  let weather = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
