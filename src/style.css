@@ -1,5 +1,27 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+
 a {
   text-decoration: none;
+}
+
+div:first-letter {
+  text-transform: capitalize;
+}
+
+.nameCity {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.temperature {
+  font-size: large;
+}
+
+.icon {
+  width: 135px;
 }
 
 .activeLink {
@@ -19,6 +41,6 @@ a {
   width: 42px;
 }
 
-.card-item-temperature{
+.card-item-temperature {
   font-size: 13px;
 }

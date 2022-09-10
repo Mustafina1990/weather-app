@@ -69,7 +69,7 @@ function showWeather(response) {
   changeType.innerHTML = weather;
   changeTemp.innerHTML = temp;
   changeHumidity.innerHTML = `Humidity: ${humidity}`;
-  changeWind.innerHTML = `Wind: ${wind}`;
+  changeWind.innerHTML = `Wind: ${wind} `;
   changeIcon(response);
 }
 
