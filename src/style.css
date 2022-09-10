@@ -6,3 +6,19 @@ a {
   cursor: default;
   color: black;
 }
+
+.card-item {
+  text-align: center;
+}
+
+.card-item-date {
+  font-size: 16px;
+}
+
+.card-item-img {
+  width: 42px;
+}
+
+.card-item-temperature{
+  font-size: 13px;
+}

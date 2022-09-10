@@ -16,22 +16,7 @@
   </head>
   <body>
     <div class="container mt-4">
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Kyiv</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Stockholm</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sidnei</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Paris</a>
-        </li>
-      </ul>
-
-      <div class="row mt-3">
+         <div class="row mt-3">
         <div class="col-6">
           <input
             type="text"
@@ -72,50 +57,12 @@
           </div>
           <div class="col-6">
             <div class="mt-4 ps-4"><span id="precipitation"></span>%</div>
-            <div class="ps-4"><span id="speedWind"></span>km/h</div>
+            <div class="ps-4"><span id="speedWind"></span>m/h</div>
           </div>
         </div>
       </div>
 
-      <div class="card mt-4">
-        <div class="row">
-          <div class="col-2 d-flex flex-column mb-3">
-            <div class="p-2 ps-4">Mon</div>
-            <div class="p-2 ps-4">
-              <img class="w-100" src="img/sun.png" alt="sun" />
-            </div>
-            <div class="p-2 ps-4 mb-4">+27°C</div>
-          </div>
-          <div class="col-2 d-flex flex-column mb-3">
-            <div class="p-2 ps-4">Tue</div>
-            <div class="p-2 ps-4">
-              <img class="w-100" src="img/sun.png" alt="sun" />
-            </div>
-            <div class="p-2 ps-4 mb-4">+27°C</div>
-          </div>
-          <div class="col-2 d-flex flex-column mb-3">
-            <div class="p-2 ps-4">Wed</div>
-            <div class="p-2 ps-4">
-              <img class="p-2 w-100" src="img/rainy-day.png" alt="rainy-day" />
-            </div>
-            <div class="p-2 ps-4 mb-4">+20°C</div>
-          </div>
-          <div class="col-2 d-flex flex-column mb-3">
-            <div class="p-2 ps-4">Thu</div>
-            <div class="p-2 ps-4">
-              <img class="w-100" src="img/cloud.png" alt="cloud" />
-            </div>
-            <div class="p-2 ps-4 mb-4">+18°C</div>
-          </div>
-          <div class="col-2 d-flex flex-column mb-3">
-            <div class="p-2 ps-4">Fri</div>
-            <div class="p-2 ps-4">
-              <img class="w-100" src="img/sun.png" alt="sun" />
-            </div>
-            <div class="p-2 ps-4 mb-4">+24°C</div>
-          </div>
-        </div>
-      </div>
+      <div class="card mt-4" id="forecast"></div>
       <small>
         <a href="https://github.com/Mustafina1990/weather-app" target="_blank"
           >Open-source code</a
